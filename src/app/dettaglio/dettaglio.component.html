@@ -1,0 +1,17 @@
+DETTAGLIO
+
+{{ drink.strDrink }}
+
+<div class="card col-6 m-3">
+    <img [src]="drink.strDrinkThumb" class="card-img-top" alt="...">
+    <div class="card-body">
+    <h5 class="card-title"> {{ drink.strDrink }}</h5>
+    <p>
+        {{ drink.strInstructions }}
+    </p>
+    <a      [routerLink]="'/home'"
+            class="btn btn-primary"
+            
+            >torna alla home</a>
+    </div>
+</div>
