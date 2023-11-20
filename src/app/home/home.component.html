@@ -1,20 +1,22 @@
-<h1>
-    HOME
-</h1>
+<nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <img id="logo" src="https://static.tvmaze.com/images/tvm-header-logo.png" alt="TVmaze" title="Keep track of your shows. TV calendar, TV watchlist, TV information database, REST TV API and more.">
+        </a>
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" placeholder="Search" aria-label="Search" name="valoreInput" [(ngModel)]="valoreInput">
+            <button class="btn btn-outline-success" type="submit" (click)="ngOnInit()">Search</button>
+        </form>
+    </div>
+</nav>
 
 <div class="row">
-    <div class="card col-4 m-3"
-        *ngFor="let drink of drinks"
-        role="button"
-        [routerLink]="'/dettaglio/' + drink.idDrink" >
-        <img [src]="drink.strDrinkThumb" class="card-img-top" alt="...">
+    <div class="card col-4 m-3" *ngFor="let serie of series" role="button" [routerLink]="'/dettaglio/' + serie.show.id">
+        <img [src]="serie.show.image.original" class="card-img-top img-fluid" alt="...">
         <div class="card-body">
-          <h5 class="card-title"> {{ drink.strDrink }}</h5>
-          <a 
-                class="btn btn-primary"
-                
-                >vai al dettaglio</a>
+            <h5 class="card-title"> {{ serie.show.name }}</h5>
+            <a class="btn btn-primary">vai al dettaglio</a>
         </div>
-      </div>
+    </div>
 
 </div>
