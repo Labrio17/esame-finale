@@ -1,19 +1,13 @@
-<nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/">
-            <h1>Meteo</h1>
-        </a>
+<h1 class="align-items-center text-center"><a class="color-sun" href="/">Weather detais</a></h1>
 
-    </div>
-</nav>
-
-<div class="container">
-    <div class="row p-3">
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" placeholder="Inserire latitudine" aria-label="Search" name="lat" [(ngModel)]="lat">
-            <input class="form-control me-2" placeholder="inserire longitudine" aria-label="Search" name="lng" [(ngModel)]="lng">
-            <button class="btn btn-outline-success" type="submit" [routerLink]="['/dettaglio', lat,lng]">Search</button>
-        </form>
-
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="card card-rounded card-shadow" style="width: 18rem;">
+        <div class=" card-body d-flex  justify-content-center align-items-end">
+            <form class="d-flex flex-wrap flex-direction-row" role="search">
+                <input class="form-control me-2 mb-4" placeholder="Inserire latitudine" aria-label="Search" name="lat" [(ngModel)]="lat">
+                <input class="form-control me-2 mb-4" placeholder="Inserire longitudine" aria-label="Search" name="lng" [(ngModel)]="lng">
+                <button class="btn btn-primary mx-auto mt-2" type="submit" [routerLink]="['/dettaglio', lat, lng]">Search</button>
+            </form>
+        </div>
     </div>
 </div>

@@ -1,6 +1,5 @@
 <div class="container-fluid">
     <div *ngIf="meteoData && meteoData.results">
-        <h2>Weather Details</h2>
         <div class="d-flex flex-direction-row flex-wrap justify-content-evenly">
             <p class="ms-3">Latitude: {{ lat }}</p>
             <p class="ms-3">Longitude: {{ lng }}</p>
@@ -13,4 +12,23 @@
             <p class="mr-5">Sunset: {{ meteoData.results.sunset }}</p>
         </div>
     </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Time point (ora italiana +3)</th>
+                <th scope="col">Temperature</th>
+                <th scope="col">Weather</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let specificData of specificMeteoData">
+            <tr>
+                <th scope="row">{{specificData.timepoint}}</th>
+                <th scope="row">{{specificData.temp2m}}°</th>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+
 </div>

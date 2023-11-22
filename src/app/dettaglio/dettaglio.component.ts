@@ -30,7 +30,7 @@ export class DettaglioComponent implements OnInit {
 
       //Seconda chiamata API
       this.api.getSpecificMeteoData(this.lat,this.lng).subscribe((response: any) => {
-      this.specificMeteoData = response;
+      this.specificMeteoData = response.dataseries;
       console.log('specificMeteoData', response);
       });
 
