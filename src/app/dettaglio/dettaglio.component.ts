@@ -3,27 +3,39 @@ import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../_services/api.service';
 
 @Component({
-  selector: 'app-dettaglio', // Set your selector appropriately
+  selector: 'app-dettaglio', 
   templateUrl: './dettaglio.component.html',
 })
 export class DettaglioComponent implements OnInit {
   lat: string ="";
   lng: string= "";
-  meteoData: any = []; // Adjust the type based on your API response
-
+  meteoData: any = []; 
+  specificMeteoData: any = [];
 
   constructor(private route: ActivatedRoute ,private api: ApiService) {}
 
   ngOnInit() {
     // Accedi ai parametri dell'URL usando ActivatedRoute
     this.route.params.subscribe(params => {
-      this.lat = params['lat']; // il "+" converte la stringa in numero
+      this.lat = params['lat']; 
       this.lng = params['lng'];
       
+
+      //Prima chiamata API
       this.api.getMeteoData(this.lat, this.lng).subscribe((response: any) => {
-      this.meteoData = response;
-      console.log('meteoData:', this.meteoData);
-});
+        this.meteoData = response;
+        console.log('meteoData:', this.meteoData);
+      }
+      );
+
+      //Seconda chiamata API
+      this.api.getSpecificMeteoData(this.lat,this.lng).subscribe((response: any) => {
+      this.specificMeteoData = response;
+      console.log('specificMeteoData', response);
+      });
+
+
+
     });
   }
 }

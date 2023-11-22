@@ -6,25 +6,10 @@ import { ApiService } from '../_services/api.service';
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
-  meteoData: any = [];
+  
   lat:  string = "";
   lng: string="";
  
 
-  constructor(private api: ApiService) {}
-
-  search() {
-    this.api.getMeteoData(this.lat,this.lng).subscribe((response: any) => {
-      this.meteoData = response;
-      console.log(response);
-    });
-
-    //this.api.getElencoDatiMeteo(this.lat,this.long).subscribe((response: any) => {
-      //this.meteoData = response;
-      //console.log(response);
-    //});
-
-
-  }
 }
 
