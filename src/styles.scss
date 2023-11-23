@@ -11,8 +11,18 @@
     color: #f39c12;
 }
 
+.color-snow{
+    color: #ecf0f1 ;
+}
+
+
+
 nav,h1, a {
     text-decoration: none;
+}
+
+li {
+    list-style: none;
 }
 
 body{
@@ -21,6 +31,11 @@ body{
 
 .card{
     background-color: #f39c12;
+}
+
+
+li a .card{
+    border: 0;
 }
 
 .card-shadow{
@@ -36,4 +51,41 @@ body{
     border-radius: 50%; /* Rende la card rotonda */
     width: 20rem; /* Imposta la larghezza della card (personalizzabile) */
     height: 18rem; /* Imposta l'altezza della card (personalizzabile) */
+}
+
+
+/* Stile per le immagini all'interno delle card */
+.img-fluid {
+    height: 350px;
+}
+
+/* Stile generale per le card */
+.card {
+    position: relative;
+    overflow: hidden;
+    transition: filter 0.5s ease-in-out; /* Effetto di transizione sul filtro */
+}
+
+/* Effetto di sfocatura sull'immagine quando passi il mouse sulla card */
+.card:hover img {
+    filter: blur(5px);
+}
+
+/* Effetto di visualizzazione del nome della città quando passi il mouse sulla card */
+.card:hover .city-name {
+    opacity: 1;
+}
+
+/* Stile per il nome della città */
+.city-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.7); /* Sfondo opaco */
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    opacity: 0; /* Inizialmente nascosto */
+    transition: opacity 0.5s ease-in-out; /* Effetto di transizione sull'opacità */
 }

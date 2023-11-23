@@ -1,8 +1,13 @@
-<h1 class="align-items-center text-center"><a class="color-sun" href="/">Weather detais</a></h1>
+<!-- Intestazione principale -->
+<h1 class="align-items-center text-center">
+    <a class="color-sun" href="/">Weather details</a>
+</h1>
 
-<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+<!-- Sezione di ricerca -->
+<div class="container d-flex justify-content-center align-items-center" style="height: 70vh;">
     <div class="card card-rounded card-shadow" style="width: 18rem;">
-        <div class=" card-body d-flex  justify-content-center align-items-end">
+        <div class=" card-body d-flex justify-content-center align-items-end">
+            <!-- Form di ricerca con input per latitudine, longitudine e pulsante di submit -->
             <form class="d-flex flex-wrap flex-direction-row" role="search">
                 <input class="form-control me-2 mb-4" placeholder="Inserire latitudine" aria-label="Search" name="lat" [(ngModel)]="lat">
                 <input class="form-control me-2 mb-4" placeholder="Inserire longitudine" aria-label="Search" name="lng" [(ngModel)]="lng">
@@ -10,4 +15,38 @@
             </form>
         </div>
     </div>
+</div>
+
+<!-- Elenco delle città con card -->
+<div class="container">
+    <h2 class="mb-4 mt-2 text-center color-snow">Citta che potrebbero interessarti:</h2>
+    <ul class="d-flex flex-direction-row flex-wrap justify-content-evenly">
+        <!-- Città di Torino -->
+        <li class="mb-4">
+            <a [routerLink]="['/dettaglio', 45.067755, 7.682489]">
+                <div class="card" style="width: 18rem;">
+                    <img src="../../assets/img/torino.jpg" alt="città di Torino" class="img-fluid card-img-top">
+                    <div class="city-name">Torino</div>
+                </div>
+            </a>
+        </li>
+        <!-- Città di Tokyo -->
+        <li class="mb-4">
+            <a [routerLink]="['/dettaglio', 35.76478424, 139.1485991]">
+                <div class="card" style="width: 18rem;">
+                    <img src="../../assets/img/tokyo.jpg" alt="città di Tokyo" class="img-fluid card-img-top">
+                    <div class="city-name">Tokyo</div>
+                </div>
+            </a>
+        </li>
+        <!-- Città di New York -->
+        <li class="mb-4">
+            <a [routerLink]="['/dettaglio', 40.71427, -74.00597]">
+                <div class="card" style="width: 18rem;">
+                    <img src="../../assets/img/newYork.jpg" alt="città di New York" class="img-fluid card-img-top">
+                    <div class="city-name">New York</div>
+                </div>
+            </a>
+        </li>
+    </ul>
 </div>

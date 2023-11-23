@@ -1,5 +1,6 @@
 <div class="container-fluid">
-    <div *ngIf="meteoData && meteoData.results">
+    <div *ngIf="meteoData && meteoData.results" class="color-snow">
+        <h2 class="text-center">Fusorario : {{meteoData.results.timezone}}</h2>
         <div class="d-flex flex-direction-row flex-wrap justify-content-evenly">
             <p class="ms-3">Latitude: {{ lat }}</p>
             <p class="ms-3">Longitude: {{ lng }}</p>
@@ -15,20 +16,26 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Time point (ora italiana +3)</th>
-                <th scope="col">Temperature</th>
-                <th scope="col">Weather</th>
+                <th scope="col" class="text-center">Time point</th>
+                <th scope="col" class="text-center">Temperature</th>
+                <th scope="col" class="text-center">Weather</th>
             </tr>
         </thead>
         <tbody *ngFor="let specificData of specificMeteoData">
             <tr>
-                <th scope="row">{{specificData.timepoint}}</th>
-                <th scope="row">{{specificData.temp2m}}°</th>
+                <th scope="row" class="text-center">{{specificData.timepoint}}</th>
+                <th scope="row" class="text-center">{{specificData.temp2m}}°</th>
+                <th *ngIf="specificData.prec_type === 'none'" class="text-center">
+                    <img width="50" height="50" src="https://img.icons8.com/ios/50/summer--v1.png" alt="summer--v1" />
+                </th>
+                <th *ngIf="specificData.prec_type === 'snow'" class="text-center">
+                    <img width="50" height="50" src="https://img.icons8.com/ios/50/snow.png" alt="snow" />
+                </th>
+                <th *ngIf="specificData.prec_type === 'rain'" class="text-center">
+                    <img width="50" height="50" src="https://img.icons8.com/ios/50/rain--v1.png" alt="rain--v1" />
+                </th>
             </tr>
         </tbody>
     </table>
-
-
-
 
 </div>

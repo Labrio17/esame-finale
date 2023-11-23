@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, booleanAttribute } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../_services/api.service';
 
@@ -12,6 +12,8 @@ export class DettaglioComponent implements OnInit {
   meteoData: any = []; 
   specificMeteoData: any = [];
 
+  
+
   constructor(private route: ActivatedRoute ,private api: ApiService) {}
 
   ngOnInit() {
@@ -19,9 +21,9 @@ export class DettaglioComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.lat = params['lat']; 
       this.lng = params['lng'];
-      
 
       //Prima chiamata API
+      if(this.lat !== "" && this.lng !== ""){
       this.api.getMeteoData(this.lat, this.lng).subscribe((response: any) => {
         this.meteoData = response;
         console.log('meteoData:', this.meteoData);
@@ -33,7 +35,9 @@ export class DettaglioComponent implements OnInit {
       this.specificMeteoData = response.dataseries;
       console.log('specificMeteoData', response);
       });
-
+      }else{
+         alert('Please be sure to have inserted both latitude and longitude.');
+      }
 
 
     });

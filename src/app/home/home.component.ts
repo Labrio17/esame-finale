@@ -6,10 +6,8 @@ import { ApiService } from '../_services/api.service';
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
-  
   lat:  string = "";
   lng: string="";
- 
-
+  
 }
 
